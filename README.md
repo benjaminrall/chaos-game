@@ -15,4 +15,4 @@ Generated with n=5, r=0.5, where the same point cannot be chosen twice in a row.
 
 #### Star Fractal
 ![star](https://github.com/benjaminrall/chaos-game/blob/master/star.png?raw=true)
-Generated with n=5, r=0.5, where the same point cannot be chosen twice in a row.
+Generated with n=5, r=0.5, where if the same point is chosen twice in a row the next point cannot be a direct neighbour.
