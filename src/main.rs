@@ -17,7 +17,7 @@ const SCALE: usize = 10;
 const COLOUR_SCALE: f64 = SCALE as f64 * 10./3.;
 const ITERATIONS: u64 = (IMAGE_SIZE * IMAGE_SIZE * SCALE) as u64;
 const PREVIOUS_POINTS: usize = 3;
-const FRACTAL_PRESET: i32 = 0;
+const FRACTAL_PRESET: i32 = 4;
 
 fn main() {
 
