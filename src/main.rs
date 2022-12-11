@@ -12,12 +12,12 @@ mod colour_type;
 mod polygon_point;
 mod fractal_settings;
 
-const IMAGE_SIZE: usize = 8000;
+const IMAGE_SIZE: usize = 1000;
 const SCALE: usize = 10;
 const COLOUR_SCALE: f64 = SCALE as f64 * 10./3.;
 const ITERATIONS: u64 = (IMAGE_SIZE * IMAGE_SIZE * SCALE) as u64;
 const PREVIOUS_POINTS: usize = 3;
-const FRACTAL_PRESET: i32 = 4;
+const FRACTAL_PRESET: i32 = 0;
 
 fn main() {
 
