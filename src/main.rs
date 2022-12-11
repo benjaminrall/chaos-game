@@ -12,12 +12,12 @@ mod colour_type;
 mod polygon_point;
 mod fractal_settings;
 
-const IMAGE_SIZE: usize = 10000;
+const IMAGE_SIZE: usize = 8000;
 const SCALE: usize = 10;
 const COLOUR_SCALE: f64 = SCALE as f64 * 10./3.;
 const ITERATIONS: u64 = (IMAGE_SIZE * IMAGE_SIZE * SCALE) as u64;
 const PREVIOUS_POINTS: usize = 3;
-const FRACTAL_PRESET: i32 = 3;
+const FRACTAL_PRESET: i32 = 4;
 
 fn main() {
 
@@ -34,6 +34,7 @@ fn main() {
                 }
             }
         ),
+        4 => FractalSettings::basic(6, 0., 0.5, ColourType::Coloured),
         _ => FractalSettings::basic(3, 0., 0.5, ColourType::White)
     };
 
@@ -47,7 +48,6 @@ fn main() {
     // Creates polygon and sets up pixel array
     let polygon = create_polygon(&fractal_settings);
     let mut current_point = Vec2::zero();
-    let mut pixels = vec![Rgb([0 as u8, 0 as u8, 0 as u8]); IMAGE_SIZE * IMAGE_SIZE];
     let mut pixels = vec![vec![0., 0., 0.]; IMAGE_SIZE * IMAGE_SIZE];
 
     // Performs iterations
