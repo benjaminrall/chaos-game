@@ -1,4 +1,4 @@
-## Chaos Game
+# Chaos Game
 Creates fractals by iteratively creating a sequence of points, starting with the initial random point, in which each point in the sequence is a given fraction of the distance between the previous point and a random one of a polygon's vertices.
 
 #### Sierpinski Triangle Fractal
