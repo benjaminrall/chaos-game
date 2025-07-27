@@ -1,18 +1,27 @@
-# Chaos Game
-Creates fractals by iteratively creating a sequence of points, starting with the initial random point, in which each point in the sequence is a given fraction of the distance between the previous point and a random one of a polygon's vertices.
+# Chaos Game Fractal Generator
 
-#### Sierpinski Triangle Fractal
-![sierpinski_triangle](https://github.com/benjaminrall/chaos-game/blob/master/sierpinski_triangle.png?raw=true)
-One of the most well known and standard fractals from the Chaos Game method, generated with n=3, r=0.5.
+A simple command-line application written in Rust for generating fractals using the 'Chaos Game' algorithm.
 
-#### Rainbow Hex Fractal
-![rainbow_hex](https://github.com/benjaminrall/chaos-game/blob/master/rainbow_hex.png?raw=true)
-Generated with n=6, r=0.5.
+The algorithm works as follows:
 
-#### Spirals Fractal
-![spirals](https://github.com/benjaminrall/chaos-game/blob/master/spirals.png?raw=true)
-Generated with n=5, r=0.5, where the same point cannot be chosen twice in a row.
+1. Define the $n$ vertices of a regular polygon
+2. Choose a random initial point within the polygon
+3. Select one of the polygon's vertices at random
+4. Move the current point a specific ratio, $r$, of the distance towards the chosen vertex
+5. Repeat steps 3 and 4 for some large number of iterations, plotting each new point
 
-#### Star Fractal
-![star](https://github.com/benjaminrall/chaos-game/blob/master/star.png?raw=true)
-Generated with n=5, r=0.5, where if the same point is chosen twice in a row the next point cannot be a direct neighbour.
+By adjusting the number of vertices, the distance ratio, and optionally adding additional
+restrictions to the choice of vertices, a huge variety of intricate fractal patterns can be generated.
+
+More details on the algorithm can be found [here](https://en.wikipedia.org/wiki/Chaos_game). 
+
+## Gallery
+
+Below are some example fractals generated with this application.
+
+| Fractal                 | Parameters                                                                                                    | Image                                                    |
+|:------------------------|:--------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
+| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                | ![Sierpiński Triangle](examples/sierpinski_triangle.png) |
+| **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                | ![Rainbow Hex](examples/rainbow_hex.png)                 |
+| **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             | ![Spirals](examples/spirals.png)                         |
+| **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. | ![Star Fractal](examples/star.png)                       |
