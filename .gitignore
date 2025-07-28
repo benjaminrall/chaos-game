@@ -1,3 +1,4 @@
 /target
-image.png
+*.png
 /chaos-game-macros/target
+.idea
