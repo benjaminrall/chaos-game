@@ -115,7 +115,7 @@ To create your own rule, follow these steps:
 
 3. **Add your rule to the rules module:**
     
-    Inside `chaos-game/src/rules/mod.rs`, define your module's filename (e.g. `mod my_rule;`)
+    Inside `chaos-game/src/rules/mod.rs`, define your rule as a module by its filename (e.g. `mod my_rule;`)
 
 4. **Rebuild and use:**
 
