@@ -1,12 +1,13 @@
 mod default;
 mod no_repeats;
+mod star;
 
 use std::collections::{HashMap, VecDeque};
 use std::sync::OnceLock;
 use crate::types::Vertex;
 
 // Type alias for the rule function
-pub type RuleFn = fn(previous_points: &VecDeque<Vertex>, new_point: &Vertex) -> bool;
+pub type RuleFn = fn(previous_points: &VecDeque<&Vertex>, new_point: &Vertex) -> bool;
 
 /// Struct holding all information needed to create a new rule.
 pub struct Rule {

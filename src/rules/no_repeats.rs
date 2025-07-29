@@ -4,7 +4,7 @@ use crate::types::Vertex;
 
 /// Rule that does not allow the same vertex to be chosen twice consecutively.
 #[rule("no-repeats", history = 1)]
-fn no_repeats(previous_points: &VecDeque<Vertex>, new_point: &Vertex) -> bool {
+fn no_repeats(previous_points: &VecDeque<&Vertex>, new_point: &Vertex) -> bool {
     if previous_points.len() == 0 {
         return true;
     }

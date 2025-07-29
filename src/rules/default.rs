@@ -4,6 +4,6 @@ use crate::types::Vertex;
 
 /// Default rule that treats every vertex as valid.
 #[rule("default")]
-fn default(_previous_points: &VecDeque<Vertex>, _new_point: &Vertex) -> bool {
+fn default(_previous_points: &VecDeque<&Vertex>, _new_point: &Vertex) -> bool {
     true
 }

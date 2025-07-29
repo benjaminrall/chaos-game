@@ -15,13 +15,16 @@ pub struct Cli {
     #[arg(short, long, default_value_t = 100_000_000)]
     pub iterations: u64,
 
+    /// Output filename
+    #[arg(short, long, default_value_t = String::from("output.png"))]
+    pub output: String,
+
     /// Flag to generate a coloured fractal based on vertex angle
     #[arg(short, long)]
     pub coloured: bool,
 
-    /// Output filename
-    #[arg(short, long, default_value_t = String::from("output.png"))]
-    pub output: String,
+    #[arg(long, default_value_t = 4.0)]
+    pub colour_scale: f64,
 
     /// Image width and height in pixels
     #[arg(long, default_value_t = 1000)]
