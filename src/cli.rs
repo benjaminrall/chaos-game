@@ -3,7 +3,7 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 pub struct Cli {
-    /// Number of sides for the polygon
+    /// Number of sides for the fractal polygon
     #[arg(short = 'n', long, default_value_t = 3)]
     pub sides: usize,
 
@@ -11,7 +11,7 @@ pub struct Cli {
     #[arg(short, long, default_value_t = 0.5)]
     pub ratio: f64,
 
-    /// Number of iterations to run
+    /// Number of iterations to run the algorithm for
     #[arg(short, long, default_value_t = 100_000_000)]
     pub iterations: u64,
 
@@ -23,6 +23,7 @@ pub struct Cli {
     #[arg(short, long)]
     pub coloured: bool,
 
+    /// Aesthetic parameter to control image brightness
     #[arg(long, default_value_t = 4.0)]
     pub colour_scale: f64,
 
@@ -34,7 +35,7 @@ pub struct Cli {
     #[arg(long, default_value_t = 0.0)]
     pub rotation_offset: f64,
 
-    /// Name of the rule to be used
+    /// Name of the rule to be used for selecting vertices
     #[arg(long, default_value_t = String::from("default"))]
     pub rule: String,
 }

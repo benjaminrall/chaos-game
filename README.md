@@ -78,7 +78,7 @@ You can see all available options by running the application with the `--help` f
 | `--coloured`        | `-c`       | A flag to generate coloured fractals based on vertex angle. | `false`       |
 | `--colour-scale`    |            | An aesthetic parameter to control image brightness.         | `4.0`         |
 | `--image-size`      |            | The width and height of the square image in pixels.         | `1000`        |
-| `--rotation-offset` |            | An initial rotation for the polygon in degrees.             | `0.0`         |
+| `--rotation-offset` |            | A rotation offset for the polygon in degrees.               | `0.0`         |
 | `--rule`            |            | The name of the rule to use for selecting vertices.         | `"default"`   |
 
 ### Custom Rules
