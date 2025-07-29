@@ -8,7 +8,7 @@ A simple command-line application written in Rust for generating fractals using 
 - [Gallery](#gallery)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Examples](#examples)
+  - [Basic Example](#basic-example)
   - [Command-Line Arguments](#command-line-arguments)
   - [Adding Custom Rules](#adding-custom-rules)
 - [License](#license)
@@ -57,6 +57,14 @@ The executable will then be available at `target/release/chaos-game`.
 
 You can run the program from the command line, providing arguments to customise the generated fractal.
 
+### Basic Example
+
+This basic example generates the Sierpiński triangle, one of the most well-known fractals
+produced by the Chaos Game.
+```shell
+./target/release/chaos-game -n 3 -r 0.5 -o sierpinski.png
+```
+
 ### Command-Line Arguments
 
 You can see all available options by running the application with the `--help` flag.
@@ -80,7 +88,7 @@ return a boolean indicating whether the new point is valid.
 
 To create your own rule, follow these steps:
 
-1. **Create a file for your new rule:**:
+1. **Create a file for your new rule:**
     
     Create a new file in the `chaos-game/src/rules/` directory (e.g., `my_rule.rs`)
 
@@ -114,7 +122,7 @@ To create your own rule, follow these steps:
     Rebuild the application with `cargo build --release`. The new rule will be automatically registered
     and available to use from the command line:
     ```shell
-    ./target/release/chaos-game -n 5 --rule my-rule
+    ./target/release/chaos-game -n 5 -c --rule my-rule
     ```
 
 ## License
