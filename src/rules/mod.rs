@@ -9,17 +9,17 @@ use crate::types::Vertex;
 // Type alias for the rule function
 pub type RuleFn = fn(previous_points: &VecDeque<&Vertex>, new_point: &Vertex) -> bool;
 
-/// Struct holding all information needed to create a new rule.
+/// Struct holding all information needed for a custom rule.
 pub struct Rule {
     pub name: &'static str,
     pub function: RuleFn,
     pub history: usize,
 }
 
-// Inventory collection for all RuleRegistration instances
+// Inventory collection for all Rule instances
 inventory::collect!(Rule);
 
-/// Constructs a mapping for each rule using their names.
+/// Constructs a mapping to each rule from their names.
 fn get_rule_map() -> &'static HashMap<&'static str, &'static Rule> {
     static RULE_MAP: OnceLock<HashMap<&'static str, &Rule>> = OnceLock::new();
     RULE_MAP.get_or_init(|| {
@@ -27,7 +27,7 @@ fn get_rule_map() -> &'static HashMap<&'static str, &'static Rule> {
     })
 }
 
-// Looks up a rule by its registered name and returns its function.
+// Looks up and returns rule by its registered name.
 pub fn get_rule_by_name(name: &str) -> Option<&&Rule> {
     get_rule_map().get(name)
 }

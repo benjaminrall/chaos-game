@@ -10,7 +10,7 @@ A simple command-line application written in Rust for generating fractals using 
 - [Usage](#usage)
   - [Basic Example](#basic-example)
   - [Command-Line Arguments](#command-line-arguments)
-  - [Adding Custom Rules](#adding-custom-rules)
+  - [Custom Rules](#custom-rules)
 - [License](#license)
 
 ## Algorithm Description
