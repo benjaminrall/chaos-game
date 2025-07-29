@@ -18,7 +18,10 @@ fn main() {
     };
 
     // Gets the Chaos Game rule to use from the specified rule name
-    let rule = get_rule_by_name(&args.rule).unwrap();
+    let rule = get_rule_by_name(&args.rule).unwrap_or_else(|| {
+        eprintln!("Could not find the '{}' rule. Now running using the 'default' rule.", args.rule);
+        get_rule_by_name("default").unwrap()
+    });
 
     // Creates the fractal's settings object
     let settings = FractalSettings::new(

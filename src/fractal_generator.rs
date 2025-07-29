@@ -1,7 +1,7 @@
-use std::collections::VecDeque;
+use crate::types::{FractalSettings, Vec2, Vertex};
 use image::{ImageBuffer, Rgb};
-use rand::{rng, Rng};
-use crate::types::{FractalSettings, Vertex, Vec2};
+use rand::Rng;
+use std::collections::VecDeque;
 
 // A simple pixel struct to hold intermediate floating-point color data.
 #[derive(Clone, Copy, Default)]
