@@ -32,7 +32,7 @@ Below are some example fractals generated with this application.
 
 | Fractal                 | Parameters                                                                                                    | Image                                                    |
 |:------------------------|:--------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
-| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                | ![Sierpiński Triangle](examples/sierpinski_triangle.png) |
+| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                | ![Sierpiński Triangle](examples/sierpinski.png) |
 | **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                | ![Rainbow Hex](examples/rainbow_hex.png)                 |
 | **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             | ![Spirals](examples/spirals.png)                         |
 | **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. | ![Star Fractal](examples/star.png)                       |
