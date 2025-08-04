@@ -6,10 +6,10 @@ A simple command-line application written in Rust for generating fractals using 
 
 - [Algorithm Description](#algorithm-description)
 - [Gallery](#gallery)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation and Usage](#installation-and-usage)
   - [Basic Example](#basic-example)
   - [Command-Line Arguments](#command-line-arguments)
+- [Development Setup](#development-setup)
   - [Custom Rules](#custom-rules)
 - [License](#license)
 
@@ -30,39 +30,27 @@ restrictions to the choice of vertices, a huge variety of intricate fractal patt
 
 Below are some example fractals generated with this application.
 
-| Fractal                 | Parameters                                                                                                    | Image                                                    |
-|:------------------------|:--------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
-| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                |<img width="1000" height="1000" alt="sierpinski" src="https://github.com/user-attachments/assets/680be877-58e4-45cd-b348-1cb10a6d115d" />|
-| **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                |<img width="1000" height="1000" alt="rainbow_hex" src="https://github.com/user-attachments/assets/f254b4fa-efcb-486c-9650-c0779c9b5e86" />|
-| **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             |<img width="1000" height="1000" alt="spirals" src="https://github.com/user-attachments/assets/9f12cfad-03e7-458d-9eb0-b05bfacc4f86" />|
-| **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. |<img width="1000" height="1000" alt="star" src="https://github.com/user-attachments/assets/2e1f7aa2-78f7-4323-80f7-9fac8b40d444" />|
+| Fractal                 | Parameters                                                                                                    | Image                                                                                                   |
+|:------------------------|:--------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
+| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                | ![Sierpiński Triangle](https://github.com/user-attachments/assets/680be877-58e4-45cd-b348-1cb10a6d115d) |
+| **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                | ![Rainbow Hex](https://github.com/user-attachments/assets/f254b4fa-efcb-486c-9650-c0779c9b5e86)         |
+| **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             | ![Spirals](https://github.com/user-attachments/assets/9f12cfad-03e7-458d-9eb0-b05bfacc4f86)             |
+| **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. | ![Star](https://github.com/user-attachments/assets/2e1f7aa2-78f7-4323-80f7-9fac8b40d444)                |
 
-## Installation
+## Installation and Usage
 
-1. Clone the repository:
-   ```shell
-   git clone https://github.com/benjaminrall/chaos-game.git
-   ```
-2. Navigate to the project directory:
-   ```shell
-   cd chaos-game
-   ```
-3. Build the project:
-   ```shell
-   cargo build --release
-   ```
-The executable will then be available at `target/release/chaos-game`.
-
-## Usage
-
-You can run the program from the command line, providing arguments to customise the generated fractal.
+To use the application, you can simply install it using Cargo:
+```shell
+cargo install chaos-game
+```
+You can then run it from the command line, providing arguments to customise the generated fractal.
 
 ### Basic Example
 
 This basic example generates the Sierpiński triangle, one of the most well-known fractals
 produced by the Chaos Game.
 ```shell
-./target/release/chaos-game -n 3 -r 0.5 -o sierpinski.png
+chaos-game -n 3 -r 0.5 -o sierpinski.png
 ```
 
 ### Command-Line Arguments
@@ -80,6 +68,23 @@ You can see all available options by running the application with the `--help` f
 | `--image-size`      |            | The width and height of the square image in pixels.         | `1000`        |
 | `--rotation-offset` |            | A rotation offset for the polygon in degrees.               | `0.0`         |
 | `--rule`            |            | The name of the rule to use for selecting vertices.         | `"default"`   |
+   
+## Development Setup
+
+To set up the project for development and add your own custom rules, follow these steps:
+
+1. **Clone the repository**
+    ```shell
+    git clone https://github.com/benjaminrall/chaos-game.git
+    cd chaos-game
+    ```
+2. **Run the application**:
+    
+    You can build and run the project directly with Cargo. Using the `--release` flag is recommended for
+    performance.
+    ```shell
+    cargo run --release -- -n 6 -c -o example.png
+    ```
 
 ### Custom Rules
 The application is designed to be easily extensible with custom rules for generating more complex fractals.
@@ -89,14 +94,14 @@ return a boolean indicating whether the new point is valid.
 To create your own rule, follow these steps:
 
 1. **Create a file for your new rule:**
-    
-    Create a new file in the `chaos-game/src/rules/` directory (e.g., `my_rule.rs`)
+
+   Create a new file in the `chaos-game/src/rules/` directory (e.g., `my_rule.rs`)
 
 2. **Write your rule function:**
-    
-    Inside the new file, write a function that takes the history of previous points and a proposed new point, and
-    returns whether the point is valid. Decorate it with the `#[rule]` attribute, giving it a unique name and
-    specifying how much history it needs.
+
+   Inside the new file, write a function that takes the history of previous points and a proposed new point, and
+   returns whether the point is valid. Decorate it with the `#[rule]` attribute, giving it a unique name and
+   specifying how much history it needs.
     ```rust
     // chaos-game/src/rules/my_rule.rs
     use std::collections::VecDeque;
@@ -114,15 +119,15 @@ To create your own rule, follow these steps:
     ```
 
 3. **Add your rule to the rules module:**
-    
-    Inside `chaos-game/src/rules/mod.rs`, define your rule as a module by its filename (e.g. `mod my_rule;`)
+
+   Inside `chaos-game/src/rules/mod.rs`, define your rule as a module by its filename (e.g. `mod my_rule;`)
 
 4. **Rebuild and use:**
 
-    Rebuild the application with `cargo build --release`. The new rule will be automatically registered
-    and available to use from the command line:
+   Rebuild the application with `cargo build --release`. The new rule will be automatically registered
+   and available to use from the command line:
     ```shell
-    ./target/release/chaos-game -n 5 -c --rule my-rule
+    chaos-game -n 5 -c --rule my-rule
     ```
 
 ## License
