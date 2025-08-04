@@ -52,7 +52,7 @@ impl FractalGenerator {
     pub fn generate<R, F>(&self, rng: &mut R, mut on_progress: F) -> ImageBuffer<Rgb<u8>, Vec<u8>>
     where
         R: Rng,
-        F: FnMut(u64) -> (),
+        F: FnMut(u64),
     {
         // Creates a list of all pixels in the image
         let mut pixels = vec![Pixel::default(); self.image_size * self.image_size];

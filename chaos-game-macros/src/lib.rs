@@ -1,3 +1,5 @@
+//! Procedural macros for the chaos-game crate.
+
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, Expr, ItemFn, Lit, LitStr, MetaNameValue, Token};

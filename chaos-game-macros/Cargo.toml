@@ -1,9 +1,11 @@
 [package]
 name = "chaos-game-macros"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Procedural macros for the chaos-game crate."
 license = "MIT"
+repository = "https://github.com/benjaminrall/chaos-game/"
+homepage = "https://github.com/benjaminrall/chaos-game/"
 
 [lib]
 proc-macro = true

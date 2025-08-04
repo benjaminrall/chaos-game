@@ -22,5 +22,5 @@ fn no_repeats(previous_points: &VecDeque<&Vertex>, new_point: &Vertex) -> bool {
         return false;
     }
 
-    return true;
+    true
 }
