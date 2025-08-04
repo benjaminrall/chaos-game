@@ -208,7 +208,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chaos-game"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "chaos-game-macros",
  "clap",
@@ -220,9 +220,9 @@ dependencies = [
 
 [[package]]
 name = "chaos-game-macros"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a06a0cbaeb32ef73a72e14432ba58f2cab9438470aeaf34aca516af8906dae7a"
+checksum = "72eaf89dc3ade7a5115686dd3160df4c3d07844112b65a266a657a5be7de8155"
 dependencies = [
  "inventory",
  "quote",
