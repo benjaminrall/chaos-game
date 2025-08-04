@@ -32,10 +32,10 @@ Below are some example fractals generated with this application.
 
 | Fractal                 | Parameters                                                                                                    | Image                                                    |
 |:------------------------|:--------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
-| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                | ![Sierpiński Triangle](examples/sierpinski.png) |
-| **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                | ![Rainbow Hex](examples/rainbow_hex.png)                 |
-| **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             | ![Spirals](examples/spirals.png)                         |
-| **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. | ![Star Fractal](examples/star.png)                       |
+| **Sierpiński Triangle** | $n=3$, $r=0.5$                                                                                                |<img width="1000" height="1000" alt="sierpinski" src="https://github.com/user-attachments/assets/680be877-58e4-45cd-b348-1cb10a6d115d" />|
+| **Rainbow Hex Fractal** | $n=6$, $r=0.5$                                                                                                |<img width="1000" height="1000" alt="rainbow_hex" src="https://github.com/user-attachments/assets/f254b4fa-efcb-486c-9650-c0779c9b5e86" />|
+| **Spirals Fractal**     | $n=5$, $r=0.5$, Rule: Cannot pick the same vertex twice in a row.                                             |<img width="1000" height="1000" alt="spirals" src="https://github.com/user-attachments/assets/9f12cfad-03e7-458d-9eb0-b05bfacc4f86" />|
+| **Star Fractal**        | $n=5$, $r=0.5$, Rule: If a vertex is picked twice in a row, the next pick cannot be a direct neighbour of it. |<img width="1000" height="1000" alt="star" src="https://github.com/user-attachments/assets/2e1f7aa2-78f7-4323-80f7-9fac8b40d444" />|
 
 ## Installation
 
