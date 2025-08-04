@@ -1,17 +1,18 @@
-name: Release Binaries for chaos-game
+name: Release
 
+# This workflow runs when you push a new tag (e.g., v1.0.0)
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  build-release:
-    name: Build for ${{ matrix.os }}
+  build-and-upload:
+    name: Build and Upload for ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout repository
@@ -23,7 +24,8 @@ jobs:
       - name: Build binary
         run: cargo build --release --locked
 
-      - name: Package for release
+      - name: Package binary
+        # This creates a compressed archive of the executable.
         run: |
           if [ "${{ runner.os }}" == "Windows" ]; then
             7z a -tzip chaos-game-${{ github.ref_name }}-${{ runner.os }}.zip ./target/release/chaos-game.exe
@@ -32,10 +34,13 @@ jobs:
           fi
         shell: bash
 
-      - name: Upload Release Asset
-        # This uses the full commit hash for version v4.0.2 to avoid tag resolution issues.
-        uses: actions/upload-release-asset@18da4306385d32152a3254331d044f54e1b782c5
+      - name: Create Release and Upload Assets
+        # This action creates the GitHub release and uploads the files (assets) to it.
+        uses: softprops/action-gh-release@v2
         with:
-          asset_path: chaos-game-${{ github.ref_name }}-${{ runner.os }}.*
-          asset_name: chaos-game-${{ github.ref_name }}-${{ runner.os }}.${{ runner.os == 'Windows' && 'zip' || 'tar.gz' }}
-          asset_content_type: application/octet-stream
+          # The list of files to upload as release assets.
+          files: chaos-game-${{ github.ref_name }}-${{ runner.os }}.*
+          # This will create a public release. Remove draft: true if you want that.
+          draft: false
+          # This automatically generates the release notes from your commits.
+          generate_release_notes: true
