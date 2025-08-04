@@ -1,5 +1,7 @@
 # Chaos Game Fractal Generator
 
+[![Crates.io Version](https://img.shields.io/crates/v/chaos-game)](https://crates.io/crates/chaos-game)
+
 A simple command-line application written in Rust for generating fractals using the 'Chaos Game' algorithm.
 
 ## Table of Contents
