@@ -221,6 +221,8 @@ dependencies = [
 [[package]]
 name = "chaos-game-macros"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a06a0cbaeb32ef73a72e14432ba58f2cab9438470aeaf34aca516af8906dae7a"
 dependencies = [
  "inventory",
  "quote",
