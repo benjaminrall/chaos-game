@@ -33,7 +33,8 @@ jobs:
         shell: bash
 
       - name: Upload Release Asset
-        uses: actions/upload-release-asset@v4
+        # This uses the full commit hash for version v4.0.2 to avoid tag resolution issues.
+        uses: actions/upload-release-asset@18da4306385d32152a3254331d044f54e1b782c5
         with:
           asset_path: chaos-game-${{ github.ref_name }}-${{ runner.os }}.*
           asset_name: chaos-game-${{ github.ref_name }}-${{ runner.os }}.${{ runner.os == 'Windows' && 'zip' || 'tar.gz' }}
