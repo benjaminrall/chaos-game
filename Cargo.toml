@@ -1,6 +1,6 @@
 [package]
 name = "chaos-game"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 description = "A simple command-line application for generating fractals using the 'Chaos Game' algorithm."
 license = "MIT"
