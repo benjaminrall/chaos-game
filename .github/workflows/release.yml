@@ -1,6 +1,5 @@
 name: Release Binaries for chaos-game
 
-# This workflow runs when a new release is published
 on:
   release:
     types: [published]
@@ -10,7 +9,6 @@ jobs:
     name: Build for ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
-    # A build matrix to run the job on all 3 major OSes
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
@@ -26,7 +24,6 @@ jobs:
         run: cargo build --release --locked
 
       - name: Package for release
-        # This step packages the binary for easy downloading.
         run: |
           if [ "${{ runner.os }}" == "Windows" ]; then
             7z a -tzip chaos-game-${{ github.ref_name }}-${{ runner.os }}.zip ./target/release/chaos-game.exe
@@ -36,12 +33,8 @@ jobs:
         shell: bash
 
       - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v2
         with:
-          # This matches the file name from the previous step
           asset_path: chaos-game-${{ github.ref_name }}-${{ runner.os }}.*
           asset_name: chaos-game-${{ github.ref_name }}-${{ runner.os }}.${{ runner.os == 'Windows' && 'zip' || 'tar.gz' }}
           asset_content_type: application/octet-stream
-          # The GITHUB_TOKEN is automatically created by GitHub
-          # and is needed to authorize the upload.
-          github_token: ${{ secrets.GITHUB_TOKEN }}
