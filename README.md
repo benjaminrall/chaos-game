@@ -10,7 +10,7 @@ A simple command-line application written in Rust for generating fractals using 
   - [Basic Example](#basic-example)
   - [Command-Line Arguments](#command-line-arguments)
 - [Development Setup](#development-setup)
-  - [Custom Rules](#custom-rules)
+  - [Adding Custom Rules](#adding-custom-rules)
 - [License](#license)
 
 ## Algorithm Description
@@ -86,7 +86,7 @@ To set up the project for development and add your own custom rules, follow thes
     cargo run --release -- -n 6 -c -o example.png
     ```
 
-### Custom Rules
+### Adding Custom Rules
 The application is designed to be easily extensible with custom rules for generating more complex fractals.
 Rules consist of a function acting on some history of previous points and a proposed new point, and must
 return a boolean indicating whether the new point is valid.
@@ -122,12 +122,12 @@ To create your own rule, follow these steps:
 
    Inside `chaos-game/src/rules/mod.rs`, define your rule as a module by its filename (e.g. `mod my_rule;`)
 
-4. **Rebuild and use:**
+4. **Use your new rule:**
 
-   Rebuild the application with `cargo build --release`. The new rule will be automatically registered
+   After completing this setup, the rule will be automatically registered
    and available to use from the command line:
     ```shell
-    chaos-game -n 5 -c --rule my-rule
+    cargo run --release -- -n 5 -c --rule my-rule
     ```
 
 ## License
