@@ -1,9 +1,7 @@
 use clap::Parser;
 use indicatif::{ProgressBar, ProgressStyle};
 use rand::rng;
-use chaos_game::cli::Cli;
-use chaos_game::FractalGenerator;
-use chaos_game::rules::get_rule_by_name;
+use chaos_game::{get_rule_by_name, Cli, FractalGenerator};
 use chaos_game::types::{ColourType, FractalSettings};
 
 fn main() {
